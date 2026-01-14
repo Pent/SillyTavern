@@ -2971,7 +2971,7 @@ export function initDefaultSlashCommands() {
             if (isFinite(firstDisplayedMessageId) && messageIndex < firstDisplayedMessageId) {
                 const needToLoadCount = firstDisplayedMessageId - messageIndex;
                 await showMoreMessages(needToLoadCount);
-                await delay(1);
+                await delay(debounce_timeout.quick);
             }
 
             const chatContainer = document.getElementById('chat');
