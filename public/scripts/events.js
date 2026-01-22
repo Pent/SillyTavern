@@ -1,6 +1,7 @@
 import { EventEmitter } from '../lib/eventemitter.js';
 
 export const event_types = {
+    APP_INITIALIZED: 'app_initialized',
     APP_READY: 'app_ready',
     EXTRAS_CONNECTED: 'extras_connected',
     MESSAGE_SWIPED: 'message_swiped',
