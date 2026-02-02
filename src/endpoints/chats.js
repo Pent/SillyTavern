@@ -919,7 +919,8 @@ router.post('/search', validateAvatarUrlMiddleware, async function (request, res
         };
 
         for (const chatFile of chatFiles) {
-            const chatInfo = await getChatInfo(chatFile, {}, false, hasTextMatch);
+            const matcher = query ? hasTextMatch : null;
+            const chatInfo = await getChatInfo(chatFile, {}, false, matcher);
             const hasMatch = hasTextMatch(chatInfo.file_id ?? '') || chatInfo.match;
 
             // Skip corrupted or invalid chat files
