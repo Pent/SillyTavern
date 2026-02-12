@@ -286,7 +286,7 @@ publicRouter.get('/', async function (request, response) {
 
         if (fs.existsSync(pathToCachedFile)) {
             invalidateFirefoxCache(pathToCachedFile, request, response);
-            return response.sendFile(path.resolve(pathToCachedFile));
+            return response.sendFile(file, { root: thumbnailFolder, dotfiles: 'allow' });
         }
 
         // Send a 404 so the frontend can display a placeholder
